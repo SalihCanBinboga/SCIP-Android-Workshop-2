@@ -3,6 +3,11 @@
 
 Can see the upcoming movies in the project and access the details of the movie.
 
+## Setup
+
+1. Create the "local.properties" file in the project folder.
+2. Add this `apiKey="{{API_KEY}}"` to this file
+
 ## Packages
 
 - ViewBinding
