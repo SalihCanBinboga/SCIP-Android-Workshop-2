@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import androidx.room.Room
+import com.example.scipandroidworkshop2.BuildConfig
 import com.example.scipandroidworkshop2.data.local.MovieDatabase
 import com.example.scipandroidworkshop2.data.models.Results
 import com.example.scipandroidworkshop2.data.remote.MovieService
@@ -45,7 +46,7 @@ class MoviesRepository(
         localDatabase: MovieDatabase,
         preferences: SharedPreferences
     ): List<Results> {
-        return movieService.getUpComingMovies(apiKey = Constants.API_KEY).also {
+        return movieService.getUpComingMovies(apiKey = BuildConfig.API_KEY).also {
             localDatabase.movieDao().insertMovie(*it.results.toTypedArray())
             preferences.edit(commit = true) {
                 putLong(CACHE_UPDATE_PREF_KEY, System.currentTimeMillis())
@@ -54,7 +55,7 @@ class MoviesRepository(
     }
 
     suspend fun getMovie(movieID: String): Results {
-        return movieService.getMovie(movieID = movieID, apiKey = Constants.API_KEY)
+        return movieService.getMovie(movieID = movieID, apiKey = BuildConfig.API_KEY)
     }
 
 }
