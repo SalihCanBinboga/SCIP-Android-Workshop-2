@@ -49,7 +49,7 @@ class MoviesFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        homeViewModel.getUpComingMovies().observe(viewLifecycleOwner, {
+        homeViewModel.getUpComingMovies(requireContext()).observe(viewLifecycleOwner, {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {

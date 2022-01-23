@@ -1,22 +1,23 @@
 package com.example.scipandroidworkshop2.ui.screens.movies
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.scipandroidworkshop2.data.models.MoviesResponseModel
+import com.example.scipandroidworkshop2.data.models.Results
 import com.example.scipandroidworkshop2.databinding.ItemUpComingListBinding
 
 class UpComingMoviesAdapter(
-    private var moviesModel: MoviesResponseModel?,
+    private var moviesModel: List<Results>?,
     private val mContext: Context
 ) : RecyclerView.Adapter<UpComingMoviesAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         moviesModel?.let { models ->
-            val model = models.results[position]
+            val model = models[position]
             val view = holder.binding
 
             view.root.setOnClickListener {
@@ -36,7 +37,8 @@ class UpComingMoviesAdapter(
 
     }
 
-    fun updateMoviesModel(moviesModel: MoviesResponseModel) {
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateMoviesModel(moviesModel: List<Results>) {
         this.moviesModel = moviesModel
         notifyDataSetChanged()
     }
@@ -53,5 +55,5 @@ class UpComingMoviesAdapter(
             )
         )
 
-    override fun getItemCount() = moviesModel?.results?.size ?: 0
+    override fun getItemCount() = moviesModel?.size ?: 0
 }

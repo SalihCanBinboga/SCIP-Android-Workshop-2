@@ -1,5 +1,6 @@
 package com.example.scipandroidworkshop2.ui.screens.movies
 
+import android.content.Context
 import androidx.lifecycle.*
 import com.example.scipandroidworkshop2.data.remote.MovieService
 import com.example.scipandroidworkshop2.data.repositories.MoviesRepository
@@ -11,10 +12,10 @@ class MoviesViewModel : ViewModel() {
         MoviesRepository(movieService = MovieService.getInstance())
     }
 
-    fun getUpComingMovies() = liveData(Dispatchers.IO) {
+    fun getUpComingMovies(context: Context) = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
-            emit(Resource.success(data = moviesRepository.getUpComingMovies()))
+            emit(Resource.success(data = moviesRepository.getUpComingMovies(context = context)))
         } catch (exception: Exception) {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }
