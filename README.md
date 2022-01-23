@@ -21,6 +21,7 @@ Can see the upcoming movies in the project and access the details of the movie.
 - Coroutines
 - ViewModel Component
 - Fragment Lifecycle
+- <s>Dependecy Injection (Hilt or Dagger)</s>
 
 ## The Architect
 
