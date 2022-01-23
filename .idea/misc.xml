@@ -5,6 +5,8 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_arrow_right.xml" value="0.2630208333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23385416666666667" />
+        <entry key="app/src/main/res/layout/fragment_movie_detail.xml" value="0.246875" />
+        <entry key="app/src/main/res/layout/fragment_movies.xml" value="0.23385416666666667" />
         <entry key="app/src/main/res/layout/item_similar_movie.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_up_coming_list.xml" value="0.246875" />
       </map>
